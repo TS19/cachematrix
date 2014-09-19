@@ -8,7 +8,7 @@
 #3.set the value of the inverse of the matrix
 #4. get the value of the inverse of the matrix
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {         ## This function creates a special matrix object that can cache its reverse.
   inv <- NULL
   set <- function(y) {
     x <<- y
@@ -22,14 +22,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 # The following function returns the inverse of the matrix. It first checks that
 #matrix has been properly computed.Then it gets the result and skips the computation.
-#If not, it computes the inverse,sets the value in the cache.
+#If not, it computes the inverse,sets the value in the cache via the set inverse function.
 
 
 
 # This function assumes that the matrix is always invertible.
 
 
-cacheSolve <- function(x,...) {
+cacheSolve <- function(x,...) {                 ## This function computes the inverse of the special matrix returned by makeCachematrix above.
   inv <- x$getinverse()
   if(!is.null(inv)) {
     message("getting cached data")
